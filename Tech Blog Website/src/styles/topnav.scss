@@ -1,0 +1,83 @@
+@import "colors";
+@import "utilsClasses";
+.firstnav{
+    background-color: $navcolor;
+}
+.topnav{
+    @extend .flexbox;
+    justify-content: space-between;
+    margin: auto 1rem;
+    > p{
+        color: white;
+    }
+    >div{
+        display: flex;
+        gap: 7px;
+        >a{
+            color: white;
+        }
+    }
+}
+.mainnav{
+    @extend .flexbox;
+    height: 80px;
+    justify-content: space-evenly;
+    > h2{
+        text-align: left;
+    }
+    >nav ul{
+        @extend .flexbox;
+        gap: 1rem;
+        >li{
+            list-style: none;
+        }
+    }
+}
+.social-icons{
+    @extend .flexbox;
+    gap: 10px;
+    >img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+    }
+}
+
+@media  screen and (max-width:600px) {
+    .topnav{
+        > p{
+            font-size: 0.7rem;
+        }
+        >div{
+            >a{
+                font-size: 0.7rem;
+            }
+        }
+    }  
+    .mainnav{
+        display: flex;
+        flex-direction: column;
+        > h2{
+          font-size: 0.8rem;
+          margin-top:0.5rem; 
+        }
+        >nav ul{
+         position: absolute;
+         left: 40px;
+            >li{
+                font-size: 0.8rem;
+            }
+        }
+    }
+    .social-icons{
+        position: relative;
+        left: 120px;
+        bottom: 7px;
+
+        >img{
+            width: 20px;
+            height: 20px;
+            border-radius: 50px;
+        }
+    }
+}

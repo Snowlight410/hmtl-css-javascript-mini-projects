@@ -1,0 +1,27 @@
+@import "colors";
+
+@mixin buttonclass{
+        color:white;
+        background-color: $buttoncolor;
+        padding: 0.8rem 1.2rem;
+        border-radius: 3px;
+        border:none;
+  }
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+@mixin borderleftright($border){
+  border-right: $border;
+  border-left: $border;
+}
+@mixin margintopbottom($value){
+  margin-top:$value;
+  margin-bottom: $value;
+}
+
+
+
+

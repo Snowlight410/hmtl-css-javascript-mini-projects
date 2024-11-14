@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* General Body Styling */
+       
+        
+        /* Container Styling */
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-top: 10px;
+            max-width: 400px;
+        }
+        
+        /* Close Button Styling */
+        .close-btn {
+            float: right;
+            font-size: 1.5rem;
+            color: #6b7280;
+            cursor: pointer;
+        }
+        
+        /* Form Heading */
+        h1 {
+            font-size: 1.5rem;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Input Styling */
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.875rem;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group input[type="password"],
+        .input-group input[type="date"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Gender and Checkbox Styling */
+        .gender-group, .terms {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .gender-group input[type="radio"] {
+            margin-right: 0.25rem;
+        }
+
+        /* Sign Up Button Styling */
+        .signup-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #3b82f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .signup-btn:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <nav class="between">
+        <div class="nav_link">
+             <span>Home</span>
+        </div>
+        <span class="logo span"><img src="data:image/png;base64,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" alt=""><span>Collecting</span></span>
+
+        <div class="content center">
+            This is Html cheatsheet is for you!
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Close Button -->
+        <span class="close-btn">&times;</span>
+
+        <!-- Form Heading -->
+        <h1>Sign Up</h1>
+
+        <!-- Sign Up Form -->
+        <form action="/submit" method="post">
+            <!-- First Name and Surname -->
+            <div class="input-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+            </div>
+            <div class="input-group">
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname" placeholder="Surname" required>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Birth Date -->
+            <div class="input-group">
+                <label for="birth-date">Birth Date</label>
+                <input type="date" id="birth-date" name="birth-date" required>
+            </div>
+
+            <!-- Gender -->
+            <div class="gender-group">
+                <label>Gender</label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+      
+
+            <!-- Sign Up Button -->
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

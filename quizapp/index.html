@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quizapp</title>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background-color: #ccc;
+        }
+
+        .result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #nextbutton {
+            background-color: indianred;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            font-size: 1rem;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Quiz App</h1>
+            <div id="quizForm">
+            </div>
+            <div id="resultanswer"></div>
+        </div>
+        <script>
+            const quizForm = document.getElementById('quizForm')
+            const nextButton = document.getElementById('nextbutton')
+            let resultAnswer = document.getElementById('resultanswer')
+            const inputField = document.querySelectorAll('input[type="radio"]');
+            const quizQuestions = [
+
+                {
+                    question: "What is the capital of France?",
+                    options: ["Madrid", "Berlin", "Paris", "Rome"],
+                    correctAnswer: "c",
+                    check: "next"
+                },
+                {
+                    question: "Which planet is known as the Red Planet?",
+                    options: ["Mars", "Venus", "Jupiter", "Saturn"],
+                    correctAnswer: "a",
+                    check: "next"
+                },
+                {
+                    question: "What is the largest mammal?",
+                    options: ["Elephant", "Giraffe", "Blue Whale", "Lion"],
+                    correctAnswer: "c",
+                    check: "next"
+                },
+                {
+                    question: "Which gas do plants absorb from the atmosphere?",
+                    options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+                    correctAnswer: "b",
+                    check: "next"
+                },
+                {
+                    question: "What is the powerhouse of the cell?",
+                    options: ["Nucleus", "Ribosome", "Mitochondria", "Endoplasmic Reticulum"],
+                    correctAnswer: "c",
+                    check: "submit"
+                },
+            ];
+            function nextquiz(currentIndex) {
+                let question = quizQuestions[currentIndex]
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <p>${question.question}</p>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" id='ans1' name="q1" value="a"> a) ${question.options[0]}
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" id='ans2' name="q1" value="b"> b) ${question.options[1]}
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" id='ans3' name="q1" value="c"> c) ${question.options[2]}
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" id='ans3' name="q1" value="d"> d) ${question.options[3]}
+                            </label>
+                        </li>
+                    </ul>
+                    <button id="nextbutton" onclick="questionquiz()">${question.check}</button>
+
+`
+                quizForm.innerHTML = ''; // Clear the previous content
+                quizForm.appendChild(questionDiv); // Append the new question
+            }
+            let currentquestionindex = 0
+            let score = 0
+            function questionquiz() {
+                const selectedOption = document.querySelector("input[name='q1']:checked");
+                if (!selectedOption) {
+                    alert('selected a option')
+                    return;
+                }
+                const userAnswer = selectedOption.value;
+                const correctAnswer = quizQuestions[currentquestionindex].correctAnswer;
+                if (userAnswer === correctAnswer) {
+                    score = score +1
+                    resultAnswer.innerText = 'Correct!'
+                }
+                else {
+                    resultAnswer.innerText = 'Incorrect!'
+                    if(score === -(1)){
+                        score = 0
+                    }
+                }
+                console.log(score)
+                selectedOption.checked = false;
+                currentquestionindex++
+               
+                if (currentquestionindex < quizQuestions.length) {
+                    nextquiz(currentquestionindex)
+                }
+                else {
+                    quizForm.innerHTML = `The correct Score is: ${score}`; // Clear the quiz form
+                    resultAnswer.innerText = 'Quiz complete!';
+                }
+            }
+            nextquiz(currentquestionindex)
+            const radioButtons = document.querySelectorAll('input[name="q1"]');
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,69 @@
+@import "colors";
+@import "utilsClasses";
+
+
+#detailspage{
+    margin-top: 4rem;
+margin-bottom: 4rem;
+}
+.inner-container{
+    width: 50%;
+    margin: auto;
+    >img{
+        max-width: 100%;
+        @include margintopbottom(1rem);
+        
+    }
+    h1{
+        font-size: 2rem;
+
+
+    }
+    >p{
+        word-wrap: break-word;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    >div{
+        @extend .flexbox;
+        justify-content: flex-start;
+        >button{
+            padding: 0.5rem 3rem;
+            margin-left: 4px;
+            color: white;
+            background-color: $buttoncolor;
+            border: none;
+            gap: 5px;
+            @extend .flexbox;
+            flex-direction: row;
+            > img{
+                width: 20px;
+                height: 20px;
+                border-radius: 20px;
+            }
+        }
+        >button:nth-child(2){
+            background-color: white;
+            color: $buttoncolor;
+            border: 2px solid;
+        }
+    }
+
+}
+.inner-container p:nth-child(1){
+    margin-bottom: 0.2rem;
+}
+
+@media screen and (max-width:600px) {
+    .inner-container{
+        margin-bottom: 5rem;
+        >div{
+            position: absolute;
+            left: 20px;
+            >button{
+               margin-bottom:2rem;
+            }
+        }
+    
+    }
+}

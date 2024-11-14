@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .choices {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <div class="game">
+        <div class="choices">
+            <p id="computer-result"></p>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div class="result">
+            <p>Choose an option...</p>
+            <p id="result-text"></p>
+        </div>
+    </div>
+    <script>
+  const computerResult = document.getElementById('computer-result')
+ 
+        function computerplay() {
+            const game = ['paper', 'rock', 'scissors']
+            let randomindex = Math.floor(Math.random() * game.length)
+            return game[randomindex]
+        }
+    function playerplay(playerrole,computerrole){
+        if(playerrole===computerrole){
+            return 'it is a tie!'
+        }
+        else if(playerrole ==='rock'&& computerrole === 'scissors' ||playerrole ==='scissors'&& computerrole === 'paper' ||playerrole ==='paper'&& computerrole === 'rock' ){
+            return 'you win!'
+        }
+        else{
+            return 'computer win!'
+        }
+    }
+    function updateresult(result){
+     const  resultText =  document.getElementById('result-text')
+      resultText.innerText= result
+    }
+   document.getElementById('rock').addEventListener('click',()=>{
+    playerside = 'rock'
+    computerside =computerplay()
+    computerResult.innerText = `Computer choose is ${computerside}`
+    const result = playerplay(playerside,computerside)
+    updateresult(result)
+   })
+   document.getElementById('paper').addEventListener('click',()=>{
+    playerside = 'paper'
+    computerside =computerplay()
+    computerResult.innerText = `Computer choose is ${computerside}`
+
+    const result = playerplay(playerside,computerside)
+    updateresult(result)
+   })
+   document.getElementById('scissors').addEventListener('click',()=>{
+    playerside = 'scissors'
+    computerside =computerplay()
+    computerResult.innerText = `Computer choose is ${computerside}`
+    const result = playerplay(playerside,computerside)
+    updateresult(result)
+   })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 50px;
+    color: white;
+    background-color: black;
+}
+.nav_link{
+    display: flex;
+    gap: 30px;
+}
+.between{
+    display: flex;
+    justify-content: space-evenly;
+}
+.span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img{
+    width: 40px;
+    border-radius: 50px;
+}
+.container{
+    margin: auto;
+    width: 70%;
+    padding: 2rem 0;
+}

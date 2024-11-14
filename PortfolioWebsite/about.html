@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeArt || About Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="menubar">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+<ul class="trans">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/blogs.html">Blogs</a></li>
+    <li><a href="/latestbook.html">LatestBooks</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/about.html">About</a></li>
+</ul>
+    </div>
+        <div class="mainsection">
+            <h1>Jamail Ali</h1>
+            <div class="about-container">
+                <div class="inner-container">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                    <div class="my-self">
+<h3>About us</h3>
+<p>It is a long established fact that a reader will be distracted by
+    the readable content of a page when looking at its layout.
+    The point of using Lorem Ipsum is that it has a more-or
+   -less normal distribution of letters, as opposed to using 
+   'Content here, content here', making it look like readable 
+   English. Many desktop publishing packages and web page
+    editors</p>
+<button>Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const ul =document.querySelector('ul')
+        const menubar =document.querySelector('.menubar')
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  ul.classList.toggle("tran");
+menubar.classList.toggle('backgroundcolor')
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+@import "colors";
+@import "utilsClasses";
+
+
+.banner{
+    background-image: url('../assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    max-width: 80%;
+    margin: auto;
+    height: 60vh;
+    >div{
+        max-width: 100%;
+        height: inherit;
+        background-color:rgba(0, 0, 0, 0.342);
+        display: flex;
+        padding-left: 2rem;
+    justify-content: center;
+    flex-direction: column;
+    >h1{
+        font-size: 3rem;
+        line-height: 40px;
+        color: $bannertextcolor;
+        padding-bottom: 1rem;
+    }
+    >p{
+        color:$bannertextcolor;
+    }
+    }
+}
+
+@media  screen and (max-width:600px) {
+    .banner{
+        height: 40vh;
+        >div{
+            height: inherit;
+        >h1{
+            font-size: 2rem;
+            text-align: center;
+        }
+        >p{
+            text-align: center;
+        }
+        }
+    }
+}

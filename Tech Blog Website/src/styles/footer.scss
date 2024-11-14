@@ -1,0 +1,56 @@
+@import "colors";
+@import "utilsClasses";
+
+#footer{
+    background-color:$footcolor;
+}
+.inner-footer{
+    width: 90%;
+    margin: auto;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+}
+.left-footer{
+    height: 25vh;
+    >h1{
+        color: white;
+        margin-bottom: 0.2rem;
+    }
+    >p{
+        width: 90%;
+        color: white;
+        word-wrap: break-word;
+    }
+}
+.center-footer{
+     @include borderleftright(1px solid white) ;
+     padding-left: 0.5rem;
+    >h2{
+      margin-bottom: 1rem;
+      color: white;
+    }
+    >ul li{
+        list-style: none;
+        color: white;
+    }
+}
+.right-footer{
+    padding-left: 0.5rem;
+    >h2{
+        margin-bottom: 1rem;
+        color: white;
+      }
+      >ul li{
+          list-style: none;
+          color: white;
+      }
+}
+.email-x-reserved{
+@extend .flexbox;
+justify-content: space-evenly;
+>h4{
+    color: white;
+}
+}
