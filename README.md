@@ -1,3 +1,19 @@
-1 first project is static food website made with html and css.
-2 seconde project is static food event website made with html and css and javascript.
-3 Thrid project is made with vanilla javascript.
+## Clock
+
+https://simgple.netlify.app/
+
+## Time Counter
+
+https://zippy-parfait-8e6f71.netlify.app/
+## Random mean generator 
+
+https://mealgene.netlify.app/
+## Food Website
+
+https://foodwebi.netlify.app/
+## quiz app
+
+https://quizizaap.netlify.app/
+## image slider
+
+https://6736d0a7de29c37aa80cba8b--kaleidoscopic-twilight-ff852c.netlify.app/
